@@ -1,0 +1,26 @@
+<table class="table table-hover">
+  <thead class="table-dark">
+    <tr>
+        <th>ID</th>
+        <th>Country</th>
+        <th>State</th>
+        <th>Length</th>
+        <th>Width</th>
+        <th>Details</th>
+        <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let carpet of allCarpets">
+      <td>{{carpet.id}}</td>
+      <td>{{carpet.country}}</td>
+      <td>{{carpet.state}}</td>
+      <td>{{carpet.lengthMm/10}}</td>
+      <td>{{carpet.widthMm/10}}</td>
+      <td>{{carpet.details}}</td>
+      <td>{{carpet.price}}</td>
+
+    </tr>
+
+  </tbody>
+</table>
