@@ -1,0 +1,17 @@
+<div *ngIf="carpet" class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{carpet.fullsizeImageUrl}}"  class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{carpet.state}}</h5>
+        <p class="card-text">{{carpet.details}}</p>
+        <p class="card-text">{{carpet.country}}, {{carpet.state}}</p>
+        <p class="card-text">{{carpet.lengthMm}}x{{carpet.widthMm}} cm</p>
+        <p class="card-text"><small class="text-muted">ID: {{carpet.id}}</small></p>
+        <button  type="button" class="btn-outline-primary btn-sm float-right mb-2" [routerLink]="['details', carpet.id]">More Details</button>
+      </div>
+    </div>
+  </div>
+</div>

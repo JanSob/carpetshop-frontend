@@ -1,0 +1,26 @@
+<div *ngIf="carpet" class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{carpet.thumbnailImageUrl}}"  class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{carpet.state}} {{carpet.lengthMm}}x{{carpet.widthMm}}</h5>
+        <p class="card-text">{{carpet.state}} {{carpet.lengthMm}}x{{carpet.widthMm}}</p>
+        <p class="card-text">{{carpet.details}}</p>
+        <p class="card-text">{{carpet.thumbnailImageUrl}}</p>
+        <p class="card-text">{{carpet.fullsizeImageUrl}}</p>
+        <p class="card-text">{{carpet.arReady}}</p>
+        <p class="card-text">{{carpet.threeD_url}}</p>
+        <p class="card-text"><small class="text-muted">ID: {{carpet.id}}</small></p>
+        <button *ngIf="carpet.arReady" type="button" class="btn btn-outline-primary btn-sm">Test carpet in AR (camera needed)</button>
+        <button (click)="back()" type="button" class="btn btn-outline-secondary btn-sm float-right">Back</button>
+        <div *ngIf="carpet.arReady">
+          <model-viewer src="assets/Astronaut.glb" ar ar-modes="webxr scene-viewer quick-look"
+                        ar-scale="auto" alt="A 3D model of an astronaut" camera-controls ios-src="assets/Astronaut.usdz"
+          ></model-viewer>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>

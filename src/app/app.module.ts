@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,12 +8,39 @@ import { AllProductsComponent } from './components/all-products/all-products.com
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import {CarpetsService} from './services/carpetservice/carpets.service';
+import { HeaderComponent } from './components/shared/header/header.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { NavComponent } from './components/shared/nav/nav.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { FiltersComponent } from './components/shopping-cart/filters/filters.component';
+import { ProductListComponent } from './components/shopping-cart/product-list/product-list.component';
+import { CartComponent } from './components/shopping-cart/cart/cart.component';
+import { ProductCategoriesComponent } from './components/shopping-cart/product-categories/product-categories.component';
+import { ProductCardComponent } from './components/shopping-cart/product-card/product-card.component';
+import { ProductDetailsComponent } from './components/shopping-cart/product-details/product-details.component';
+import  '@google/model-viewer';
+import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AdminInventoryComponent } from './components/admin/admin-inventory/admin-inventory.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarpetDetailsComponent,
-    AllProductsComponent
+    AllProductsComponent,
+    HeaderComponent,
+    FooterComponent,
+    NavComponent,
+    ShoppingCartComponent,
+    FiltersComponent,
+    ProductListComponent,
+    CartComponent,
+    ProductCategoriesComponent,
+    ProductCardComponent,
+    ProductDetailsComponent,
+    AdminLoginComponent,
+    AdminComponent,
+    AdminInventoryComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +49,7 @@ import {CarpetsService} from './services/carpetservice/carpets.service';
     NgbModule
   ],
   providers: [CarpetsService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

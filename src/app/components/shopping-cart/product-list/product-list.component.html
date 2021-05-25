@@ -1,0 +1,10 @@
+<div >
+<!--  create flexible grid system for the cards &ndash;&gt; think about some kind of pagination (later)-->
+  <div *ngIf="allCarpets">
+    <div  *ngFor="let carpet of allCarpets">
+      <app-product-card [carpet]="carpet"></app-product-card>
+    </div>
+  </div>
+
+</div>
+

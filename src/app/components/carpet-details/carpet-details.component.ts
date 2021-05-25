@@ -4,7 +4,7 @@ import {Carpet} from '../../models/carpet/carpet';
 
 @Component({
   selector: 'app-carpet-details',
-  templateUrl: './carpet-details-bootstrap.component.html',
+  templateUrl: './carpet-details.component.html',
   styleUrls: ['./carpet-details.component.css']
 })
 export class CarpetDetailsComponent implements OnInit {
