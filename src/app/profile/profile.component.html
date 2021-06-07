@@ -1,0 +1,10 @@
+<div class="container" *ngIf="token; else loggedOut">
+  <p>
+    <strong>Token:</strong>
+    {{tokenString}}
+  </p>
+</div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>

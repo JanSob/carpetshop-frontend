@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { CarpetDetailsComponent } from './components/carpet-details/carpet-details.component';
 import { AllProductsComponent } from './components/all-products/all-products.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {CarpetsService} from './services/carpetservice/carpets.service';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
@@ -22,6 +22,10 @@ import  '@google/model-viewer';
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminInventoryComponent } from './components/admin/admin-inventory/admin-inventory.component';
+import {FormsModule} from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import {AuthInterceptor} from './services/authservice/AuthInterceptor';
 
 @NgModule({
   declarations: [
@@ -40,15 +44,18 @@ import { AdminInventoryComponent } from './components/admin/admin-inventory/admi
     ProductDetailsComponent,
     AdminLoginComponent,
     AdminComponent,
-    AdminInventoryComponent
+    AdminInventoryComponent,
+    LoginComponent,
+    ProfileComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    NgbModule
-  ],
-  providers: [CarpetsService],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        NgbModule,
+        FormsModule
+    ],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, CarpetsService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

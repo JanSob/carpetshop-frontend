@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   backendUrl: 'http://localhost:8080'
+  //backendUrl: 'http://userservice-env.eba-gj3uwwpd.eu-central-1.elasticbeanstalk.com'
 };
 
 /*

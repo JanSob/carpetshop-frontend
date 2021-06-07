@@ -12,4 +12,7 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  logout() {
+    localStorage.removeItem("id_token")
+  }
 }

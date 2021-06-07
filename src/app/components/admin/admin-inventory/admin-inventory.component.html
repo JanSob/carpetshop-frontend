@@ -1,0 +1,27 @@
+<table class="table" border="3">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Country</th>
+    <th>State</th>
+    <th>Length</th>
+    <th>Width</th>
+    <th>Details</th>
+    <th>Price</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let carpet of allCarpets">
+    <td>{{carpet.id}}</td>
+    <td>{{carpet.country}}</td>
+    <td>{{carpet.state}}</td>
+    <td>{{carpet.lengthMm}}</td>
+    <td>{{carpet.widthMm}}</td>
+    <td>{{carpet.details}}</td>
+    <td>{{carpet.price}}</td>
+    <td><button type="button" class="btn btn-outline-primary btn-sm">Edit</button></td>
+  </tr>
+
+  </tbody>
+</table>

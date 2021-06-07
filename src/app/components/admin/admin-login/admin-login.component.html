@@ -1,16 +1,11 @@
+<div *ngIf="!isLoggedIn; else loggedIn" class="form-group">
+  <input type="text" placeholder="username" [(ngModel)]="username">
+  <input type="text" placeholder="password" [(ngModel)]="password">
+  <button type="button" class="btn-outline-primary" (click)="submit()">Submit</button>
+  <button type="button" class="btn-outline-primary" (click)="infos()">Infos</button>
+</div>
 
-<form name="f" action="admin_login" method="POST">
-  <table>
-    <tr>
-      <td>Admin:</td>
-      <td><input type="text" name="username" value=""></td>
-    </tr>
-    <tr>
-      <td>Password:</td>
-      <td><input type="password" name="password" /></td>
-    </tr>
-    <tr>
-      <td><input name="submit" type="submit" value="submit" /></td>
-    </tr>
-  </table>
-</form>
+<ng-template #loggedIn>
+  <b><h3>You are logged in.</h3></b>
+</ng-template>
+
