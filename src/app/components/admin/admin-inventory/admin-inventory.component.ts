@@ -10,6 +10,7 @@ import {Carpet} from '../../../models/carpet/carpet';
 export class AdminInventoryComponent implements OnInit {
 
   allCarpets: Carpet[] = [];
+  selectedId?: Number;
   constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
@@ -22,4 +23,23 @@ export class AdminInventoryComponent implements OnInit {
     )
   }
 
+  editDetails(id: Number | null): void{
+    if(!id){
+      console.log("Id is invalid: " +id);
+      return;
+    }
+    this.selectedId = id!;
+  }
+
+  deleteCarpet(id: Number | null) {
+    if(!id){
+      console.log("Id is invalid: " +id);
+      return;
+    }
+    this.adminService.deleteCarpet(id!).subscribe(data => {
+
+      console.log("Carpet deleted-status:" + data);
+      this.ngOnInit();
+    })
+  }
 }

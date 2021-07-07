@@ -22,10 +22,13 @@ import  '@google/model-viewer';
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminInventoryComponent } from './components/admin/admin-inventory/admin-inventory.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import {AuthInterceptor} from './services/authservice/AuthInterceptor';
+import { EditDetailsComponent } from './components/admin/admin-edit-details/edit-details/edit-details.component';
+import { AddCarpetComponent } from './components/admin/add-carpet/add-carpet/add-carpet.component';
+
 
 @NgModule({
   declarations: [
@@ -46,15 +49,18 @@ import {AuthInterceptor} from './services/authservice/AuthInterceptor';
     AdminComponent,
     AdminInventoryComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditDetailsComponent,
+    AddCarpetComponent
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        AppRoutingModule,
-        NgbModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, CarpetsService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

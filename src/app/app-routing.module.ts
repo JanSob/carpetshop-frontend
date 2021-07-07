@@ -8,18 +8,19 @@ import {AdminComponent} from './components/admin/admin.component';
 import {AdminInventoryComponent} from './components/admin/admin-inventory/admin-inventory.component';
 import {LoginComponent} from './login/login.component';
 import {ProfileComponent} from './profile/profile.component';
+import {AddCarpetComponent} from './components/admin/add-carpet/add-carpet/add-carpet.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'products' , pathMatch: 'full'},
-  { path: '/', redirectTo: 'products' , pathMatch: 'full'},
+  //{ path: '/', redirectTo: 'products' , pathMatch: 'full'},
   { path: 'products/details/:id', component: ProductDetailsComponent , pathMatch: 'full'},
   { path: 'artest', component: AllProductsComponent , pathMatch: 'full'},
   { path: 'products', component: ShoppingCartComponent ,pathMatch: 'full'},
   {path:'admin', component: AdminComponent, children:[
     {path:'login', component:AdminLoginComponent},
-    {path:'login2', component:LoginComponent},
     {path:'profile', component:ProfileComponent},
-    {path:'inventory', component: AdminInventoryComponent}
+    {path:'inventory', component: AdminInventoryComponent},
+    {path:'inventory/add', component: AddCarpetComponent}
     ]},
 ];
 

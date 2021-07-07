@@ -8,6 +8,10 @@
     <th>Width</th>
     <th>Details</th>
     <th>Price</th>
+    <th>Thumb-URL</th>
+    <th>FullS-URL</th>
+    <th>3D-AND</th>
+    <th>3D-IOS</th>
     <th></th>
   </tr>
   </thead>
@@ -20,8 +24,19 @@
     <td>{{carpet.widthMm}}</td>
     <td>{{carpet.details}}</td>
     <td>{{carpet.price}}</td>
-    <td><button type="button" class="btn btn-outline-primary btn-sm">Edit</button></td>
+    <td>{{carpet.thumbnailImageUrl}}</td>
+    <td>{{carpet.fullsizeImageUrl}}</td>
+    <td>{{carpet.threeD_urlAndroid}}</td>
+    <td>{{carpet.threeD_urlIOS}}</td>
+    <td><button type="button" class="btn btn-outline-primary btn-sm" (click)="editDetails(carpet.id)">Edit</button></td>
+    <td><button type="button" class="btn btn-danger btn-sm" (click)="deleteCarpet(carpet.id)">Delete</button></td>
   </tr>
-
   </tbody>
 </table>
+<div class="container-fluid"><a routerLink="/admin/inventory/add" class="btn btn-success float-sm-right">Add Carpet</a></div>
+
+
+<div *ngIf="selectedId">
+  <app-edit-details [carpetId]="selectedId"></app-edit-details>
+</div>
+

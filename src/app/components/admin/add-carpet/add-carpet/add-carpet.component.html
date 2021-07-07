@@ -1,0 +1,59 @@
+<div>
+  <form [formGroup]="fG" (submit)="addCarpet()">
+
+
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="country" placeholder="country">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="region" placeholder="state">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="details" placeholder="details">
+    </div>
+
+    <div class="form-group">
+      <input type="number" class="form-control" formControlName="length" placeholder="lengthMm" name="length" [(ngModel)]="lengthMm">
+    </div>
+
+    <div class="form-group">
+      <input type="number" class="form-control" formControlName="width" placeholder="widthMm" name="width" [(ngModel)]="widthMm">
+    </div>
+
+    <div class="form-group">
+      <input type="number" class="form-control" formControlName="price" placeholder="price">
+    </div>
+
+
+    <div *ngIf="widthMm>0 && lengthMm>0">
+      <div class="form-group">
+        <b>thumbnail</b>
+        <input type="file" (change)="onFileSelected($event, 'thumbnailImage')" class="form-control" formControlName="thumbnailUrl" [ngModel]="thumbnailUrl" placeholder="thumbnailImageUrl">
+      </div>
+
+      <div class="form-group">
+        <b>fullsize</b>
+        <input type="file" (change)="onFileSelected($event, 'fullsizeImage')" class="form-control" formControlName="fullsizeUrl" [ngModel]="fullsizeUrl" placeholder="fullsizeImageUrl">
+      </div>
+
+      <div class="form-group">
+        <input type="file" (change)="onFileSelected($event, 'threeDAndroid')" class="form-control" formControlName="threeDUrlAndroid" [ngModel]="threeDUrlAndroid" placeholder="threeDUrlAndroid">
+      </div>
+
+      <div class="form-group">
+        <input type="file" (change)="onFileSelected($event, 'threeDIOS')" class="form-control" formControlName="threeDUrlIOS" [ngModel]="threeDUrlIOS" placeholder="threeDUrlIOS">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Add new carpet to database</button>
+      <button type="button" class="btn btn-danger" routerLink="/admin/inventory">Cancel</button>
+
+    </div>
+  </form>
+</div>
+
+<div *ngIf="generatedModelGLTF">
+  <b>Apparently a blob was generated</b>
+  <model-viewer [src]="generatedModelGLTFURL" ar ar-scale="fixed" ar-modes="webxr scene-viewer quick-look" camera-controls alt="A product"></model-viewer>
+</div>
