@@ -15,11 +15,17 @@
         <p class="card-text"><small class="text-muted">ID: {{carpet.id}}</small></p>
         <button *ngIf="carpet.arReady" type="button" class="btn btn-outline-primary btn-sm">Test carpet in AR (camera needed)</button>
         <button (click)="back()" type="button" class="btn btn-outline-secondary btn-sm float-right">Back</button>
+
         <div *ngIf="carpet.arReady">
           <model-viewer [src]="carpet.threeD_urlAndroid" ar ar-scale="fixed" ar-modes="webxr scene-viewer quick-look" camera-controls alt="A product"></model-viewer>
         </div>
-        </div>
-      <nav><a [href]=carpet.threeD_urlIOS>USDZ-Link S3</a></nav>
+
+
+        <a [href]="saveUrl">Try this carpet virtually in your room! (Augmented Reality-Android)</a>
+
+
+      </div>
+      <nav><a [href]="carpet.threeD_urlIOS">USDZ-Link S3</a></nav>
     </div>
   </div>
 </div>

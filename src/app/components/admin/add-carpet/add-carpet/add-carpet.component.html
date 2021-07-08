@@ -38,6 +38,7 @@
         <input type="file" (change)="onFileSelected($event, 'fullsizeImage')" class="form-control" formControlName="fullsizeUrl" [ngModel]="fullsizeUrl" placeholder="fullsizeImageUrl">
       </div>
 
+    <div *ngIf="!generatedModelUSDZ">
       <div class="form-group">
         <input type="file" (change)="onFileSelected($event, 'threeDAndroid')" class="form-control" formControlName="threeDUrlAndroid" [ngModel]="threeDUrlAndroid" placeholder="threeDUrlAndroid">
       </div>
@@ -45,6 +46,7 @@
       <div class="form-group">
         <input type="file" (change)="onFileSelected($event, 'threeDIOS')" class="form-control" formControlName="threeDUrlIOS" [ngModel]="threeDUrlIOS" placeholder="threeDUrlIOS">
       </div>
+    </div>
 
       <button type="submit" class="btn btn-primary">Add new carpet to database</button>
       <button type="button" class="btn btn-danger" routerLink="/admin/inventory">Cancel</button>

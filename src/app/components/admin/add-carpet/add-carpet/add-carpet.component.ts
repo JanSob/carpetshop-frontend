@@ -30,6 +30,8 @@ export class AddCarpetComponent implements OnInit {
 
   generatedModelGLTF!: File;
   generatedModelGLTFURL!: string;
+  generatedModelUSDZ!: File;
+  generatedModelUSDZURL!: string;
 
   filesDict: { [key: string]: File } = {};
 
@@ -65,10 +67,18 @@ export class AddCarpetComponent implements OnInit {
     console.log(event);
 
     if (name === 'fullsizeImage') {
-      this.filesDict['threeDAndroid'] = await this.modelGenerator.createModelAsync(this.widthMm, this.lengthMm, event.target.files[0]);
+      const modelArray: File[] = await this.modelGenerator.createModelAsync(this.widthMm, this.lengthMm, event.target.files[0]);
+
+      this.filesDict['threeDAndroid'] = modelArray[0];
       this.generatedModelGLTFURL = URL.createObjectURL(this.filesDict['threeDAndroid']);
       this.generatedModelGLTF = this.filesDict['threeDAndroid'];
-      console.log("Added generated model? " + this.filesDict['threeDAndroid'].size)
+      console.log("Added generated model? " + this.filesDict['threeDAndroid'].size);
+
+      this.filesDict['threeDIOS'] = modelArray[1];
+      this.generatedModelUSDZURL = URL.createObjectURL(this.filesDict['threeDIOS']);
+      this.generatedModelUSDZ = this.filesDict['threeDIOS'];
+      console.log("Added generated model? " + this.filesDict['threeDIOS'].size)
+
     }
 
     this.filesDict[name] = event.target.files[0];
