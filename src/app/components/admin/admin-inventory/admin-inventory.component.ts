@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AdminService} from '../../../services/adminservice/admin.service';
 import {Carpet} from '../../../models/carpet/carpet';
+import {CarpetsPage} from '../../../models/CarpetsPage';
+import {PageEvent} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-admin-inventory',
@@ -11,16 +13,34 @@ export class AdminInventoryComponent implements OnInit {
 
   allCarpets: Carpet[] = [];
   selectedId?: Number;
+  totalNumberCarpets!: number;
   constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
     this.adminService.getCarpetsList().subscribe(
-      (allCarpets: Carpet[]) =>{
-        this.allCarpets = allCarpets;
+      (allCarpets: CarpetsPage) =>{
+        this.allCarpets = allCarpets.content;
+        this.totalNumberCarpets = allCarpets.totalElements;
       }, error=>{
         console.log("Couldn't load carpets")
       }
     )
+  }
+
+  nextPage(event: PageEvent) {
+    const request = {};
+    // @ts-ignore
+    request['page'] = event.pageIndex.toString();
+    // @ts-ignore
+    request['size'] = event.pageSize.toString();
+    this.adminService.getCarpetsList(request).subscribe(
+      (allCarpets: CarpetsPage) =>{
+        this.allCarpets = allCarpets.content;
+        this.totalNumberCarpets = allCarpets.totalElements;
+      }, error=>{
+        console.log("Couldn't load carpets")
+      }
+    );
   }
 
   editDetails(id: Number | null): void{

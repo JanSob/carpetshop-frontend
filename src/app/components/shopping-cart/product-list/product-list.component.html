@@ -1,9 +1,71 @@
+<div class="container-sm">
+  <div class="d-flex flex-column flex-shrink-0 bg-light">
+    <div class="filters row gy-4">
+      <form>
+        <label class="ps-2" for="lengthMmMin">Minimum Length</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">cm</span>
+          </div>
+          <input type="number" id="lengthMmMin" class="form-control" [(ngModel)]="lengthMmMin">
+        </div>
+
+        <label class="ps-2" for="lengthMmMax">Maximum Length</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">cm</span>
+          </div>
+          <input type="number" id="lengthMmMax" class="form-control" [(ngModel)]="lengthMmMax">
+        </div>
+      </form>
+
+      <form>
+        <label class="ps-2" for="widthMmMin">Minimum Width</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">cm</span>
+          </div>
+          <input type="number" id="widthMmMin" class="form-control" [(ngModel)]="widthMmMin">
+        </div>
+
+        <label class="ps-2" for="widthMmMax">Maximum Width</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">cm</span>
+          </div>
+          <input type="number" id="widthMmMax" class="form-control" [(ngModel)]="widthMmMax">
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+  <button type="button" class="btn btn-primary btn-sm" (click)="onclick()">Search</button>
+</div>
+
+
+
+
+
+
+
+
 <div >
 <!--  create flexible grid system for the cards &ndash;&gt; think about some kind of pagination (later)-->
   <div *ngIf="allCarpets">
-    <div  *ngFor="let carpet of allCarpets">
-      <app-product-card [carpet]="carpet"></app-product-card>
-    </div>
+    <table class="mat-table">
+
+      <div  *ngFor="let carpet of allCarpets">
+          <tr>
+            <app-product-card [carpet]="carpet" [isCheckedFavorite]="this.carpetIsFavorite(carpet)"></app-product-card>
+          </tr>
+      </div>
+
+    </table>
+    <mat-paginator [pageSizeOptions]="[10, 25, 100]" [pageSize]="10" [length]="totalNumberCarpets"
+                   (page)="nextPage($event)">
+
+    </mat-paginator>
   </div>
 
 </div>

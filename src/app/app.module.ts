@@ -28,6 +28,9 @@ import { ProfileComponent } from './profile/profile.component';
 import {AuthInterceptor} from './services/authservice/AuthInterceptor';
 import { EditDetailsComponent } from './components/admin/admin-edit-details/edit-details/edit-details.component';
 import { AddCarpetComponent } from './components/admin/add-carpet/add-carpet/add-carpet.component';
+import { FavoriteProductsComponent } from './components/shopping-cart/favorite-products/favorite-products.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -51,16 +54,19 @@ import { AddCarpetComponent } from './components/admin/add-carpet/add-carpet/add
     LoginComponent,
     ProfileComponent,
     EditDetailsComponent,
-    AddCarpetComponent
+    AddCarpetComponent,
+    FavoriteProductsComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    NgbModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        NgbModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NoopAnimationsModule,
+        MatPaginatorModule
+    ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, CarpetsService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

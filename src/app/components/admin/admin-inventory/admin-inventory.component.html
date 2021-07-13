@@ -33,6 +33,10 @@
   </tr>
   </tbody>
 </table>
+<mat-paginator [pageSizeOptions]="[10, 25, 100]" [pageSize]="10" [length]="totalNumberCarpets"
+               (page)="nextPage($event)">
+
+</mat-paginator>
 <div class="container-fluid"><a routerLink="/admin/inventory/add" class="btn btn-success float-sm-right">Add Carpet</a></div>
 
 

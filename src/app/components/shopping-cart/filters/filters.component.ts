@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-filters',
@@ -6,6 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filters.component.css']
 })
 export class FiltersComponent implements OnInit {
+
+  lengthMmMin!: number;
+  lengthMmMax!: number;
+  widthMmMin!: number;
+  widthMmMax!: number;
+
+  onclick(event: Event){
+
+  }
 
   constructor() { }
 

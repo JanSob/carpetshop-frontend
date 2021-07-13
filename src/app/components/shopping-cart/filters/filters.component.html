@@ -1,42 +1,46 @@
+<!--
 <div class="container-sm">
   <div class="d-flex flex-column flex-shrink-0 bg-light">
     <div class="filters row gy-4">
       <form>
-        <label class="ps-2" for="fromPrice">From</label>
+        <label class="ps-2" for="lengthMmMin">Minimum Length</label>
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text">€</span>
+            <span class="input-group-text">cm</span>
           </div>
-          <input type="number" id="fromPrice" class="form-control">
+          <input type="number" id="lengthMmMin" class="form-control" [(ngModel)]="lengthMmMin">
         </div>
 
-        <label class="ps-2" for="toPrice">To</label>
+        <label class="ps-2" for="lengthMmMax">Maximum Length</label>
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text">€</span>
+            <span class="input-group-text">cm</span>
           </div>
-          <input type="number" id="toPrice" class="form-control">
+          <input type="number" id="lengthMmMax" class="form-control" [(ngModel)]="lengthMmMax">
         </div>
       </form>
 
       <form>
-        <label class="ps-2" for="fromLength">From length</label>
+        <label class="ps-2" for="widthMmMin">Minimum Width</label>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text">cm</span>
           </div>
-          <input type="number" id="fromLength" class="form-control">
+          <input type="number" id="widthMmMin" class="form-control" [(ngModel)]="widthMmMin">
         </div>
 
-        <label class="ps-2" for="toLength">To length</label>
+        <label class="ps-2" for="widthMmMax">Maximum Width</label>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text">cm</span>
           </div>
-          <input type="number" id="toLength" class="form-control">
+          <input type="number" id="widthMmMax" class="form-control" [(ngModel)]="widthMmMax">
         </div>
       </form>
 
     </div>
+
   </div>
+  <button type="button" class="btn btn-primary btn-sm" (click)="onclick($event)">Search</button>
 </div>
+-->

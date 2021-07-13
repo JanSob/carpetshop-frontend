@@ -9,12 +9,14 @@ import {AdminInventoryComponent} from './components/admin/admin-inventory/admin-
 import {LoginComponent} from './login/login.component';
 import {ProfileComponent} from './profile/profile.component';
 import {AddCarpetComponent} from './components/admin/add-carpet/add-carpet/add-carpet.component';
+import {FavoriteProductsComponent} from './components/shopping-cart/favorite-products/favorite-products.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'products' , pathMatch: 'full'},
   //{ path: '/', redirectTo: 'products' , pathMatch: 'full'},
   { path: 'products/details/:id', component: ProductDetailsComponent , pathMatch: 'full'},
   { path: 'artest', component: AllProductsComponent , pathMatch: 'full'},
+  { path: 'products/favorites', component: FavoriteProductsComponent ,pathMatch: 'full'},
   { path: 'products', component: ShoppingCartComponent ,pathMatch: 'full'},
   {path:'admin', component: AdminComponent, children:[
     {path:'login', component:AdminLoginComponent},

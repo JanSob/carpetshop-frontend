@@ -6,6 +6,7 @@ import {User} from '../../models/user';
 import {Carpet} from '../../models/carpet/carpet';
 import {CarpetWrapperDTO} from '../../models/carpetWrapperDTO';
 import {FormBuilder} from '@angular/forms';
+import {CarpetsPage} from '../../models/CarpetsPage';
 
 const baseUri = environment.backendUrl + '/admin';
 
@@ -18,14 +19,26 @@ export class AdminService {
   constructor(private httpClient: HttpClient) { }
 
   // adminEndpoint.getAllCarpets
-  getCarpetsList(): Observable<Carpet[]>{
+/*  getCarpetsList(): Observable<Carpet[]>{
     return this.httpClient.get<Carpet[]>(baseUri+"/carpets");
+  }  */
+
+
+  getCarpetsList(request?: any): Observable<CarpetsPage>{
+    const params = request;
+    return this.httpClient.get<CarpetsPage>(baseUri+"/carpets", {params});
   }
+
+
+
 
   // adminEndpoint.addCarpet
   addCarpet(carpet: Carpet): Observable<Carpet>{
     return this.httpClient.post<Carpet>(baseUri+"/carpets/", carpet);
   }
+
+
+
 
 /*  addCarpetWithMedia(carpetWrapperDTO: CarpetWrapperDTO): Observable<Carpet>{
     //Cooler trick

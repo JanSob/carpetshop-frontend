@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Carpet} from '../../models/carpet/carpet';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingCartComponent implements OnInit {
 
+  favoriteCarpets: Carpet[] = [];
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
 
 }

@@ -1,0 +1,8 @@
+<p>favorite-products works!</p>
+<div>
+  <div *ngIf="favoriteCarpets">
+    <div *ngFor="let carpet of favoriteCarpets">
+      <app-product-card [carpet]="carpet" [isCheckedFavorite]="true"></app-product-card>
+    </div>
+  </div>
+</div>

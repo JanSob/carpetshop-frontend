@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CarpetsService} from '../../services/carpetservice/carpets.service';
 import {Carpet} from '../../models/carpet/carpet';
+import {CarpetsPage} from '../../models/CarpetsPage';
 
 @Component({
   selector: 'app-carpet-details',
@@ -14,8 +15,8 @@ export class CarpetDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.carpetsService.getCarpetsList().subscribe(
-      (allCarpets: Carpet[]) => {
-        this.allCarpets = allCarpets;
+      (allCarpets: CarpetsPage) => {
+        this.allCarpets = allCarpets.content;
       },
     error => {
         return;

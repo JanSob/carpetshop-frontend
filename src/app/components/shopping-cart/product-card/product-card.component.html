@@ -10,6 +10,12 @@
         <p class="card-text">{{carpet.country}}, {{carpet.state}}</p>
         <p class="card-text">{{carpet.lengthMm}}x{{carpet.widthMm}} cm</p>
         <p class="card-text"><small class="text-muted">ID: {{carpet.id}}</small></p>
+        <div>
+          <input type="checkbox" id="favorite" name="favorite" value="Favorite" [checked]="isCheckedFavorite" (change)="manageFavorite($event)">
+          <label> Favorite</label>
+        </div>
+
+
         <button  type="button" class="btn-outline-primary btn-sm float-right mb-2" [routerLink]="['details', carpet.id]">More Details</button>
       </div>
     </div>
